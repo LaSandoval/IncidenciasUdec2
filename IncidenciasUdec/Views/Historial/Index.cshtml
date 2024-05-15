@@ -1,0 +1,49 @@
+﻿
+@model IEnumerable<IncidenciasUdec.Models.REPORTE>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Historial de Reportes</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Historial de Reportes</h1>
+        <form method="get" action="@Url.Action("Index")" class="form-inline">
+            <div class="form-group">
+                <input type="text" name="searchString" class="form-control" placeholder="Buscar por ubicación" />
+            </div>
+            <button type="submit" class="btn btn-default">Buscar</button>
+        </form>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID Usuario</th>
+                    <th>Nombre</th>
+                    <th>Ubicación</th>
+                    <th>Tipo de Daño</th>
+                    <th>Descripción</th>
+                    <th>Clasificación</th>
+                    <th>Imagen</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.ID_USUARIO)</td>
+                        <td>@Html.DisplayFor(modelItem => item.NOMBRE)</td>
+                        <td>@Html.DisplayFor(modelItem => item.UBICACION.NOMBRE)</td> <!-- Asegúrate de que UBICACION no sea null -->
+                        <td>@Html.DisplayFor(modelItem => item.TIPO_DAÑO.NOMBRE)</td> <!-- Asegúrate de que TIPO_DAÑO no sea null -->
+                        <td>@Html.DisplayFor(modelItem => item.DESCRIPCION)</td>
+                        <td>@Html.DisplayFor(modelItem => item.CLASIFICACION.NOMBRE)</td> <!-- Asegúrate de que CLASIFICACION no sea null -->
+                        <td><a href="@item.IMAGEN" target="_blank">Ver imagen</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -160,6 +160,7 @@
     <Compile Include="Controllers\CrearDocenteController.cs" />
     <Compile Include="Controllers\CrearEmpleadoController.cs" />
     <Compile Include="Controllers\CrearEstudianteController.cs" />
+    <Compile Include="Controllers\HistorialController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ReportesAdminController.cs" />
@@ -315,6 +316,7 @@
     <Content Include="Views\ReportesAdmin\Details.cshtml" />
     <Content Include="Views\ReportesAdmin\Edit.cshtml" />
     <Content Include="Views\ReportesAdmin\Index.cshtml" />
+    <Content Include="Views\Historial\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
