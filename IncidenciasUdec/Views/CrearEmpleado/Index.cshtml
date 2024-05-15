@@ -1,0 +1,69 @@
+﻿@model IEnumerable<IncidenciasUdec.Models.USUARIO>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+    <div style="margin-top:10px">
+       
+        <div>
+            <h4>Gestión de colaboradores</h4>
+            <hr />
+            <a href="@Url.Action("Create","CrearEmpleado")" class="btn btn-success">Crear +</a>
+        </div>
+        <table style="margin-top:10px;font-size:small;text-align:center" class="table table-success">
+            <tr>
+                <th>
+                    @Html.DisplayName("Nombre")
+                </th>
+                <th>
+                    @Html.DisplayName("Apellido")
+                </th>
+                <th>
+                    @Html.DisplayName("Correo")
+                </th>
+                <th>
+                    @Html.DisplayName("Télefono")
+                </th>
+                <th>Opciones</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NOMBRE)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.APELLIDO)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EMAIL)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TELEFONO)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", new { id = item.ID })" class="btn btn-primary">Editar</a>
+                        <a href="@Url.Action("Delete",new {id= item.ID})" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <div style="text-align:center">
+            <a href="@Url.Action("VistaGeneralAdministrador","ReportesAdmin")" class="btn btn-primary">Regresar</a>
+        </div>
+    </div>
+
+</body>
+</html>

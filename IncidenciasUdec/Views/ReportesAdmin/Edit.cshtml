@@ -1,0 +1,145 @@
+﻿@model IncidenciasUdec.Models.REPORTE
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Asignar reporte a colaborador</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ID)
+
+            <div style="margin-top:10px" class="form-group">
+                @Html.Label("Nombre de reporte")
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NOMBRE, new { htmlAttributes = new { @class = "form-control", @readonly="readonly" } })
+                    @Html.ValidationMessageFor(model => model.NOMBRE, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div style="margin-top:10px" class="form-group">
+                @Html.Label("Ubicación")
+                <div class="col-md-10">
+                    @Html.DropDownList("ID_UBICACION", null, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                    @Html.ValidationMessageFor(model => model.ID_UBICACION, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div style="margin-top:10px" class="form-group">
+                @Html.Label("Area")
+                <div class="col-md-10">
+                    @Html.DropDownList("ID_TIPO_DAÑO", null, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+                    @Html.ValidationMessageFor(model => model.ID_TIPO_DAÑO, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div style="margin-top:10px" class="form-group">
+                @Html.Label("Descripción")
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DESCRIPCION, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    @Html.ValidationMessageFor(model => model.DESCRIPCION, "", new { @class = "text-danger" })
+                    @if (!string.IsNullOrEmpty(ViewBag.Imagen))
+                    {
+                        <div style="margin-top:10px">
+                            <img src="@Model.IMAGEN" height="100px" width="100px" />
+                        </div>
+                    }
+                    else
+                    {
+                        <span>Nada por ahora</span>
+                    }
+
+                </div>
+            </div>
+
+            <hr />
+            <div style="margin-top:10px" class="form-group">
+                @Html.Label("Clasificación")
+                <div class="col-md-10">
+                    @Html.DropDownList("ID_CLASIFICACION", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ID_CLASIFICACION, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div style="margin-top:10px">
+                <div>
+                    @Html.Label("Tiempo estimado")
+                </div>
+
+                @if (Model.ID_CLASIFICACION == 1)
+                {
+                    <div>
+                        <input value="3 horas" readonly="readonly" />
+                    </div>
+                }
+                else if (Model.ID_CLASIFICACION == 2)
+                {
+                    <div>
+                        <input value="5 horas" readonly="readonly" />
+                    </div>
+                }
+                else
+                {
+                    <div>
+                        <input value="12 - 24 horas" readonly="readonly" />
+                    </div>
+                }
+            </div>
+
+            <div style="margin-top:10px" class="form-group">
+                <div class="col-md-10">
+                    @Html.DropDownList("ID_ESTADO", null, htmlAttributes: new { @class = "form-control", @hidden = "hidden" })
+                    @Html.ValidationMessageFor(model => model.ID_ESTADO, "", new { @class = "text-danger", @hidden = "hidden" })
+                </div>
+            </div>
+
+            <div style="margin-top:10px" class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.IMAGEN, new { htmlAttributes = new { @class = "form-control", @hidden = "hidden" } })
+                    @Html.ValidationMessageFor(model => model.IMAGEN, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div style="margin-top:10px" class="form-group">
+                @Html.LabelFor(model => model.ID_USUARIO, "ID_USUARIO", htmlAttributes: new { @class = "control-label col-md-2", @hidden = "hidden" })
+                <div class="col-md-10">
+                    @Html.DropDownList("ID_USUARIO", null, htmlAttributes: new { @class = "form-control", @hidden = "hidden" })
+                    @Html.ValidationMessageFor(model => model.ID_USUARIO, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div style="margin-top:10px" class="form-group">
+                @Html.Label("Asignar a")
+                <div class="col-md-10">
+                    @Html.DropDownList("LISTA_COLABORADORES", ViewBag.LISTA_COLABORADORES as IEnumerable<SelectListItem>, "--SELECCIONE--", new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ID_USUARIOASIGNACION, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div style="margin-top:10px" class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+
+                    <input type="submit" value="Asignar" class="btn btn-success" />
+
+                    <a href="@Url.Action("Index","ReportesAdmin")" class="btn btn-primary">Regresar</a>
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>

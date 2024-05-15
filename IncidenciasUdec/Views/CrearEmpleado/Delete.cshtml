@@ -1,0 +1,69 @@
+﻿@model IncidenciasUdec.Models.USUARIO
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+    <div class="alert alert-danger" role="alert">
+        <span>¿Está seguro de eliminar este perfil del colaborador?</span>
+    </div>
+    <div>
+        <h4>Eliminar perfil colaborador</h4>
+        <hr />
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NOMBRE)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NOMBRE)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.APELLIDO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.APELLIDO)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EMAIL)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EMAIL)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TELEFONO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TELEFONO)
+            </dd>
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Borrar" class="btn btn-danger" />
+                <a href="@Url.Action("Index","CrearEmpleado")" class="btn btn-primary">Regresar</a>
+            </div>
+        }
+    </div>
+</body>
+</html>

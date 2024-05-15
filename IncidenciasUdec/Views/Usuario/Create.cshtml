@@ -1,0 +1,53 @@
+﻿@model IncidenciasUdec.Models.USUARIO
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div style="margin-top:10px">
+        @if (TempData["Mensaje"] != null)
+        {
+            <div class="alert alert-success" role="alert">
+                @TempData["Mensaje"]
+            </div>
+        }
+        <div class="form-horizontal">
+            <div style="text-align:center">
+                <h4>Crear usuario</h4>
+            </div>
+            
+            <hr />
+            @Styles.Render("~/Content/css")
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div id="seleccionTipoUsuaario" style="text-align:center">
+                <div>
+                    <a href="@Url.Action("Create", "CrearDocente")" class="btn btn-primary">
+                        <img src="~/Img/profesor.png" width="100" height="100" />
+                        <span style="display: flex; flex-direction: column; align-items: center; justify-content: center;">Soy docente</span>
+                    </a>
+
+                    <a href="@Url.Action("Create", "CrearEstudiante")" class="btn btn-primary">
+                        <img src="~/Img/estudiante.png" width="100" height="100" />
+                        <span style="display: flex; flex-direction: column; align-items: center; justify-content: center;">Soy estudiante</span>
+                    </a>
+                </div>
+                <div style="margin-top:10px">
+                    <a href="@Url.Action("Login", "Login")" class="btn btn-primary">Ir a Login</a>
+                </div>
+               
+            </div>
+        </div>
+        @Scripts.Render("~/bundles/bootstrap")
+
+    </div>
+}
+

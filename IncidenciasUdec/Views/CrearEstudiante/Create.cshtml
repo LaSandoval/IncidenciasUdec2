@@ -1,0 +1,96 @@
+﻿@model IncidenciasUdec.Models.USUARIO
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()<div class="form-horizontal">
+            <h4>Crear perfil Estudiante</h4>
+            @Styles.Render("~/Content/css")
+            <hr />
+            @if (ViewBag.Mensaje != null)
+            {
+                <div style="text-align:center" class="alert alert-info" role="alert">
+                    @ViewBag.Mensaje
+                </div>
+            }
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div style="margin-bottom:10px" class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control", placeholder="Correo" } })
+                    @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div style="margin-bottom:10px" class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.PASSWORD, new { htmlAttributes = new { @class = "form-control", placeholder = "Contraseña", type = "password" } })
+                    @Html.ValidationMessageFor(model => model.PASSWORD, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div style="margin-bottom:10px" class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ConfirmarPassword, new { htmlAttributes = new { @class = "form-control", placeholder = "Confirmar contraseña", type = "password" } })
+                    @Html.ValidationMessageFor(model => model.ConfirmarPassword, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div style="margin-bottom:10px" class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NOMBRE, new { htmlAttributes = new { @class = "form-control", placeholder = "Nombre(s)" } })
+                    @Html.ValidationMessageFor(model => model.NOMBRE, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div style="margin-bottom:10px" class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.APELLIDO, new { htmlAttributes = new { @class = "form-control", placeholder = "Apellido(s)" } })
+                    @Html.ValidationMessageFor(model => model.APELLIDO, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div style="margin-bottom:10px" class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TELEFONO, new { htmlAttributes = new { @class = "form-control", placeholder = "Número de teléfono/celular" } })
+                    @Html.ValidationMessageFor(model => model.TELEFONO, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div style="margin-bottom:10px" class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SEMESTRE, new { htmlAttributes = new { @class = "form-control", min = "1", max = "10", placeholder = "Semestre" } })
+                    @Html.ValidationMessageFor(model => model.SEMESTRE, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div style="margin-bottom:10px" class="form-group">
+                <div class="col-md-10">
+                    @Html.DropDownList("ID_PROGRAMA", null, "--Programa--", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ID_PROGRAMA, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Crear" class="btn btn-success" />
+                    <a href="@Url.Action("Create", "Usuario")" class="btn btn-primary">Regresar</a>
+                </div>
+            </div>
+        </div>
+    }
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>
+<link href="~/Content/Style1.css" rel="stylesheet" />

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9a0472dfa2564249adbdaffba152ecd6" Name="Diagram1">
+        <EntityTypeShape EntityType="reporteudecModel.CLASIFICACION" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="reporteudecModel.ESTADO" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="reporteudecModel.PROGRAMA" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="reporteudecModel.REPORTE" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="reporteudecModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="reporteudecModel.TIPO_DAÑO" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="reporteudecModel.UBICACION" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="reporteudecModel.USUARIO" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="reporteudecModel.FK_REPORTE_CLASIFICACION" ManuallyRouted="false" />
+        <AssociationConnector Association="reporteudecModel.FK_REPORTE_ESTADO" ManuallyRouted="false" />
+        <AssociationConnector Association="reporteudecModel.FK_PROGRAMA_USUARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="reporteudecModel.FK_REPORTE_TIPO_DAÑO" ManuallyRouted="false" />
+        <AssociationConnector Association="reporteudecModel.FK_REPORTE_UBICACION" ManuallyRouted="false" />
+        <AssociationConnector Association="reporteudecModel.FK_REPORTE_USUARIO" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

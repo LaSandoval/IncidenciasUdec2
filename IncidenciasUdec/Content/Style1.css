@@ -1,0 +1,62 @@
+﻿/* Estilos para el formulario */
+.form-horizontal {
+    margin-top: 20px;
+    background-color: #4CAF50; /* verde */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px; /* Ancho máximo */
+    margin: 0 auto; /* Centrar horizontalmente */
+}
+
+/* Estilos para el título */
+h4 {
+    margin-bottom: 20px;
+    color: #fff; /* texto blanco */
+    text-align: center; /* centrado */
+}
+
+/* Resto de estilos permanecen iguales */
+.control-label {
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+}
+
+.btn-success {
+    margin-right: 10px;
+}
+
+.btn-primary {
+    margin-left: 10px;
+}
+
+.alert {
+    margin-top: 10px;
+}
+
+.container {
+    margin-top: 50px;
+    text-align: center;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+    a:hover {
+        color: #0056b3;
+    }
+
+body {
+    
+    background-image: url('../img/3419d4af-23cf-473c-8e37-57b6da1ae161.jpg');
+     /*'..');*/ /* Ruta a tu imagen de fondo */
+    background-size: cover; /* Cubrir toda el área */
+    background-position: center; /* Centrar la imagen */
+    background-repeat: no-repeat; /* No repetir la imagen */
+}
+

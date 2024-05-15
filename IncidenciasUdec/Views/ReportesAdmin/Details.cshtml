@@ -1,0 +1,70 @@
+﻿@model IncidenciasUdec.Models.REPORTE
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>REPORTE</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NOMBRE)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NOMBRE)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.UBICACION)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.UBICACION)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TIPO_DAÑO)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TIPO_DAÑO)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DESCRIPCION)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DESCRIPCION)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.IMAGEN)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.IMAGEN)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CLASIFICACION)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CLASIFICACION)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

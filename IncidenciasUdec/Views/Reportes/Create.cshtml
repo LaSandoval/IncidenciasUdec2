@@ -1,0 +1,78 @@
+﻿@model IncidenciasUdec.Models.REPORTE
+
+@{
+    ViewBag.Title = "Crear reporte";
+}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    @using (Html.BeginForm("Create", "Reportes", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()<div class="form-horizontal">
+            @if (ViewBag.Mensaje != null)
+            {
+                <div class="alert alert-info" role="alert">
+                    @ViewBag.Mensaje
+                </div>
+            }
+            <h4>Crear reporte</h4>
+            <hr />
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div style="margin-bottom:10px" class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NOMBRE, new { htmlAttributes = new { @class = "form-control", placeholder = "Título" } })
+                    @Html.ValidationMessageFor(model => model.NOMBRE, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div style="margin-bottom:10px" class="form-group">
+                <div class="col-md-10">
+                    @Html.DropDownList("ID_UBICACION", null, "--Ubicación--", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ID_UBICACION, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div style="margin-bottom:10px" class="form-group">
+                <div class="col-md-10">
+                    @Html.DropDownList("ID_TIPO_DAÑO", null, "--Tipo de daño--", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ID_TIPO_DAÑO, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div style="margin-bottom:10px" class="form-group">
+                <div class="col-md-10">
+                    @Html.DropDownList("ID_CLASIFICACION", null, "--Clasificación--", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ID_CLASIFICACION, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div style="margin-bottom:10px" class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DESCRIPCION, new { htmlAttributes = new { @class = "form-control", placeholder = "Descripción" } })
+                    @Html.ValidationMessageFor(model => model.DESCRIPCION, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div style="margin-bottom:10px" class="form-group">
+                <div class="col-md-10">
+                    <input type="file" name="IMAGEN" id="IMAGEN" class="form-control" />
+                    @Html.ValidationMessageFor(model => model.IMAGEN, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Crear" class="btn btn-success" />
+                    <a href="@Url.Action("Index","Home")" class="btn btn-primary">Atrás</a>
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>

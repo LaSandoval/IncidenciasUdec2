@@ -1,0 +1,112 @@
+﻿@model IEnumerable<IncidenciasUdec.Models.REPORTE>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Asignación de reporte</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+    <div style="margin-top:10px">
+        <h4>Asignación de reporte</h4>
+        <hr />
+        <div>
+            <span>Filtro por estado:</span>
+            <form @Url.Action("Index", "ReportesAdmin") method="post">
+                <select class="form-group" name="filtro">
+                    <option class="form-control" value="">--Seleccione--</option>
+                    @foreach (var cat in ViewBag.Filtro)
+                    {
+                        <option value="@cat.Text">@cat.Text</option>
+                    }
+                </select>
+                <input type="submit" value="Buscar" class="btn btn-success" />
+                <a href="@Url.Action("Index","ReportesAdmin")" class="btn btn-primary">Ver todos</a>
+            </form>
+        </div>
+        
+        <div style="margin-top:10px;text-align:center">
+            <table class="table table-success">
+                <tr>
+                    <th>
+                        @Html.DisplayName("Nombre")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Descripción")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Imagen")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Clasificación")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Estado")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Area")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Ubicación")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Reportó")
+                    </th>
+                    <th>Opciones</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NOMBRE)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DESCRIPCION)
+                        </td>
+                        <td>
+                            <a href="@item.IMAGEN" target="_blank">Ver</a>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CLASIFICACION.NOMBRE)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ESTADO.NOMBRE)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TIPO_DAÑO.NOMBRE)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UBICACION.NOMBRE)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.USUARIO.EMAIL)
+                        </td>
+                        <td>
+                            @if (item.ID_USUARIOASIGNACION > 1)
+                            {
+                                @Html.ActionLink("Asignar", "Edit", new { id = item.ID },new { @class = "no-action-link", href = "#" })
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Asignar", "Edit", new { id = item.ID })
+                            }
+
+                        </td>
+                    </tr>
+                }
+            </table>
+            <div style="text-align:center">
+                <a href="@Url.Action("VistaGeneralAdministrador","ReportesAdmin")" class="btn btn-primary">Regresar</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

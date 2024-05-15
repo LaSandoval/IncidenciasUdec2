@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "VistaGeneralAdministrador";
+}
+
+@{
+    Layout = null;
+}
+@Styles.Render("~/Content/css")
+<div style="text-align:center;margin-top:10px" class="p-3 mb-2 bg-success text-white bg-opacity-10">
+    <div>
+        <a class="btn btn-success" href="@Url.Action("Index", "CrearEmpleado")">Gestionar colaborador</a>
+        <a class="btn btn-success" href="@Url.Action("Index","ReportesAdmin")">Ver reportes general</a>
+        <a class="btn btn-success" href="@Url.Action("VerReportesAsignados","ReportesAdmin")">Ver reportes asignados</a>
+    </div>
+    @Scripts.Render("~/bundles/bootstrap")
+</div>
+<div style="margin-top:10px;text-align:center">
+    <a href="@Url.Action("Index","Home")" class="btn btn-primary">Regresar</a>
+</div>
+

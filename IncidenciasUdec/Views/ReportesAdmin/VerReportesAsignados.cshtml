@@ -1,0 +1,67 @@
+﻿@model IEnumerable<IncidenciasUdec.Models.ViewModelReportesAsignados>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VerReportesAsignados</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+    <div style="margin-top:10px">
+        <h4>Reportes asignados</h4>
+        <hr />
+        @if (TempData["Mensaje"] != null)
+        {
+            <div class="alert alert-danger" role="alert">
+                @TempData["Mensaje"]
+            </div>
+        }
+        <div style="margin-top:10px;text-align:center">
+            <table class="table table-success">
+                <tr>
+                    <th>
+                        @Html.DisplayName("Número de reporte")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Nombre reporte")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Colaborador asignado")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Estado")
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdReporte)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NombreReporte)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NombreColaboradorAsignado)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Estado)
+                        </td>
+                    </tr>
+                }
+            </table>
+            <div style="text-align:center">
+                <a href="@Url.Action("VistaGeneralAdministrador","ReportesAdmin")" class="btn btn-primary">Regresar</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+﻿/* Estilos para el formulario */
+.form-horizontal {
+    margin-top: 20px;
+    background-color: rgba(76, 175, 80, 0.7); /* verde opaco */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px; /* Ancho máximo */
+    margin: 0 auto; /* Centrar horizontalmente */
+    display: flex; /* Usar flexbox */
+    flex-direction: column; /* Apilar elementos verticalmente */
+    justify-content: center; /* Centrar verticalmente */
+}
+
+/* Estilos para el título */
+h4 {
+    margin-bottom: 20px;
+    color: #fff; /* texto blanco */
+    text-align: center; /* centrado */
+}
+
+/* Estilos para los campos y etiquetas */
+.control-label {
+    font-weight: bold;
+    text-align: left; /* Alinear etiquetas a la izquierda */
+}
+
+    .control-label col-md-2 {
+        font-weight: bold;
+        text-align: left; /* Alinear etiquetas a la izquierda */
+    }
+
+.form-control {
+    width: 100%;
+    text-align: left; /* Alinear datos a la izquierda */
+}
+
+/* Estilos para los botones */
+.btn-success {
+    margin-right: 10px;
+}
+
+.btn-primary {
+    margin-left: 10px;
+}
+
+/* Estilos para el mensaje de alerta */
+.alert {
+    margin-top: 10px;
+    text-align: left; /* Alinear texto a la izquierda */
+}
