@@ -31,7 +31,7 @@
                 <a href="@Url.Action("Index","ReportesAdmin")" class="btn btn-primary">Ver todos</a>
             </form>
         </div>
-        
+
         <div style="margin-top:10px;text-align:center">
             <table class="table table-success">
                 <tr>
@@ -92,7 +92,7 @@
                         <td>
                             @if (item.ID_USUARIOASIGNACION > 1)
                             {
-                                @Html.ActionLink("Asignar", "Edit", new { id = item.ID },new { @class = "no-action-link", href = "#" })
+                                @Html.ActionLink("Asignar", "Edit", new { id = item.ID }, new { @class = "no-action-link", href = "#" })
                             }
                             else
                             {
@@ -110,3 +110,4 @@
     </div>
 </body>
 </html>
+@Styles.Render("~/Content/Historial.css")

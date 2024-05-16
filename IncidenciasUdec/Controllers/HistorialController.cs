@@ -45,15 +45,12 @@ namespace IncidenciasUdec.Controllers
             return View(rEPORTE);
         }
 
-        // GET: REPORTEs1/Create
+     
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: REPORTEs1/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,NOMBRE,UBICACION,TIPO_DAÑO,DESCRIPCION,IMAGEN,CLASIFICACION")] REPORTE rEPORTE)
@@ -83,9 +80,6 @@ namespace IncidenciasUdec.Controllers
             return View(rEPORTE);
         }
 
-        // POST: REPORTEs1/Edit/5
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,NOMBRE,UBICACION,TIPO_DAÑO,DESCRIPCION,IMAGEN,CLASIFICACION")] REPORTE rEPORTE)
@@ -99,7 +93,6 @@ namespace IncidenciasUdec.Controllers
             return View(rEPORTE);
         }
 
-        // GET: REPORTEs1/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -114,7 +107,6 @@ namespace IncidenciasUdec.Controllers
             return View(rEPORTE);
         }
 
-        // POST: REPORTEs1/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

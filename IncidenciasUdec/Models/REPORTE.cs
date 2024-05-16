@@ -24,7 +24,10 @@ namespace IncidenciasUdec.Models
         public string IMAGEN { get; set; }
         public Nullable<int> ID_USUARIO { get; set; }
         public Nullable<int> ID_USUARIOASIGNACION { get; set; }
-    
+        public string MOTIVO { get; set; }
+        public string IMAGENRESULTADO { get; set; }
+
+
         public virtual CLASIFICACION CLASIFICACION { get; set; }
         public virtual ESTADO ESTADO { get; set; }
         public virtual TIPO_DAÑO TIPO_DAÑO { get; set; }

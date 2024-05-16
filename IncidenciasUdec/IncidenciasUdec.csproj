@@ -160,6 +160,7 @@
     <Compile Include="Controllers\CrearDocenteController.cs" />
     <Compile Include="Controllers\CrearEmpleadoController.cs" />
     <Compile Include="Controllers\CrearEstudianteController.cs" />
+    <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\HistorialController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -217,6 +218,8 @@
     <Compile Include="Servicios\Utilidades.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Reportes.css" />
+    <Content Include="Content\Home.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -233,16 +236,23 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Admin.css" />
     <Content Include="Content\Style.css" />
     <Content Include="Content\Style2.css" />
     <Content Include="Content\Style1.css" />
+    <Content Include="Content\Historial.css" />
     <Content Include="Content\StyleSheet1.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Img\3419d4af-23cf-473c-8e37-57b6da1ae161.jpg" />
+    <Content Include="Img\36978940_m-300x230.jpg" />
+    <Content Include="Img\62LXKL7CFBB4JGJCOD7SO2MH7M.jpg" />
+    <Content Include="Img\BLOQUE-F-FUSA.jpg" />
     <Content Include="Img\estudiante.png" />
     <Content Include="Img\facatativa.png" />
+    <Content Include="Img\images %281%29.jpeg" />
+    <Content Include="Img\maxresdefault.jpg" />
     <Content Include="Img\profesor.png" />
     <Content Include="Models\reporte.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -317,6 +327,8 @@
     <Content Include="Views\ReportesAdmin\Edit.cshtml" />
     <Content Include="Views\ReportesAdmin\Index.cshtml" />
     <Content Include="Views\Historial\Index.cshtml" />
+    <Content Include="Views\Empleado\Asignacion.cshtml" />
+    <Content Include="Views\Empleado\VerReporte.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

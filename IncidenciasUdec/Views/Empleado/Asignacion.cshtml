@@ -1,0 +1,57 @@
+﻿@model IEnumerable<IncidenciasUdec.Models.ViewModelReportesAsignados>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reportes Asignados</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>Reportes Asignados</h2>
+
+        <!-- Formulario de búsqueda -->
+        <form method="get" action="@Url.Action("Asignacion", "Empleado")" class="mb-3">
+            <div class="form-row">
+                <div class="col-auto">
+                    <input type="text" name="nombre" placeholder="Nombre del Colaborador" class="form-control" value="@Request.QueryString["nombre"]" />
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary">Buscar</button>
+                    <a href="@Url.Action("Asignacion","Empleado")" class="btn btn-primary">Ver todos</a>
+                </div>
+            </div>
+        </form>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Número de Reporte</th>
+                    <th>Nombre</th>
+                    <th>Colaborador Asignado</th>
+                    <th>Estado</th>
+                    <th>Acciones</th> <!-- Nueva columna para las acciones -->
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var reporte in Model)
+                {
+                    <tr>
+                        <td>@reporte.IdReporte</td>
+                        <td>@reporte.NombreReporte</td>
+                        <td>@reporte.NombreColaboradorAsignado</td>
+                        <td>@reporte.Estado</td>
+                        <td>
+                            <!-- Enlace para ver los detalles del reporte -->
+                            <a href="@Url.Action("VerReporte", "Empleado", new { idReporte = reporte.IdReporte })">Ver</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+@Styles.Render("~/Content/Historial.css")
+

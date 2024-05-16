@@ -1,0 +1,34 @@
+﻿body {
+    background-image: url('../img/62lxkl7cfbb4jgjcod7so2mh7m.jpg');
+    background-size: cover; /* Cubrir todo el fondo */
+    background-repeat: no-repeat; /* No repetir la imagen */
+    font-family: Arial, sans-serif; /* Fuente predeterminada */
+}
+
+.container {
+    margin-top: 20px; /* Espacio superior */
+    text-align: center; /* Centrar el contenido */
+}
+
+.btn {
+    margin-top: 10px; /* Espacio superior entre botones */
+    margin-right: 10px; /* Espacio derecho entre botones */
+    background-color: #28a745; /* Color de fondo verde */
+    color: #fff; /* Color del texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 20px; /* Relleno */
+    font-size: 16px; /* Tamaño de fuente */
+    text-decoration: none; /* Sin subrayado */
+    cursor: pointer; /* Cursor al pasar por encima */
+}
+
+    .btn:hover {
+        background-color: #218838; /* Cambio de color de fondo al pasar por encima */
+    }
+
+p {
+    background-color: #f2f2f2; /* Fondo gris para los párrafos */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+}
