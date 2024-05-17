@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using static System.Data.Entity.Infrastructure.Design.Executor;
+
 namespace IncidenciasUdec.Models
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class ESTADO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,16 +21,17 @@ namespace IncidenciasUdec.Models
         {
             this.REPORTE = new HashSet<REPORTE>();
         }
-    
+
         public int ID { get; set; }
         public string NOMBRE { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<REPORTE> REPORTE { get; set; }
-
         public static implicit operator ESTADO(string v)
         {
             throw new NotImplementedException();
         }
+
     }
+
 }

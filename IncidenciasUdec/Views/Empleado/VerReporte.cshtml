@@ -28,7 +28,7 @@
         <p>Estado actual: @Model.ESTADO.NOMBRE</p>
 
         <form method="post" action="@Url.Action("VerReporte", "Empleado", new { idReporte = Model.ID })" enctype="multipart/form-data">
-
+            <!-- Campos para subir una imagen y proporcionar un motivo -->
             <div class="form-group">
                 <label for="imagen">Subir Imagen Resultado:</label>
                 <input type="file" class="form-control" id="imagen" name="imagen">
@@ -38,15 +38,14 @@
                 <label for="motivo">Motivo (Si no se soluciono):</label>
                 <input type="text" class="form-control" id="motivo" name="motivo">
             </div>
-            </div>
-            <!-- Agregar un campo oculto para enviar el estado deseado -->
-           <input type="hidden" name="estado" value="Finalizado">
-           <button type="submit" class="btn btn-primary">Actualizar</button>
-           </form>
 
-    <!-- Botón de regresar -->
-    <div class="mt-4" style="text-align: center;">
-        <a href="@Url.Action("Asignacion", "Empleado")" class="btn btn-secondary">Regresar</a>
-    </div>
+            <!-- Botón de enviar -->
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+        </form>
+
+        <!-- Botón de regresar -->
+        <div class="mt-4" style="text-align: center;">
+            <a href="@Url.Action("Asignacion", "Empleado")" class="btn btn-secondary">Regresar</a>
+        </div>
 </body>
 </html>
