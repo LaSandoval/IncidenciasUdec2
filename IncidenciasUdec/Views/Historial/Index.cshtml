@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>Historial de Reportes</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -15,7 +16,10 @@
             <div class="form-group">
                 <input type="text" name="searchString" class="form-control" placeholder="Buscar por ubicación" />
             </div>
-            <button type="submit" class="btn btn-default">Buscar</button>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-default">Buscar</button>
+                <a href="@Url.Action("Index","Historial")" class="btn btn-primary">Ver todos</a>
+               </div>
         </form>
         <table class="table table-bordered">
             <thead>
@@ -27,6 +31,7 @@
                     <th>Descripción</th>
                     <th>Clasificación</th>
                     <th>Imagen</th>
+                    <th>Estado</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,11 +40,12 @@
                     <tr>
                         <td>@Html.DisplayFor(modelItem => item.ID_USUARIO)</td>
                         <td>@Html.DisplayFor(modelItem => item.NOMBRE)</td>
-                        <td>@Html.DisplayFor(modelItem => item.UBICACION.NOMBRE)</td> <!-- Asegúrate de que UBICACION no sea null -->
-                        <td>@Html.DisplayFor(modelItem => item.TIPO_DAÑO.NOMBRE)</td> <!-- Asegúrate de que TIPO_DAÑO no sea null -->
+                        <td>@Html.DisplayFor(modelItem => item.UBICACION.NOMBRE)</td> 
+                        <td>@Html.DisplayFor(modelItem => item.TIPO_DAÑO.NOMBRE)</td> 
                         <td>@Html.DisplayFor(modelItem => item.DESCRIPCION)</td>
-                        <td>@Html.DisplayFor(modelItem => item.CLASIFICACION.NOMBRE)</td> <!-- Asegúrate de que CLASIFICACION no sea null -->
+                        <td>@Html.DisplayFor(modelItem => item.CLASIFICACION.NOMBRE)</td> 
                         <td><a href="@item.IMAGEN" target="_blank">Ver imagen</a></td>
+                        <td>@Html.DisplayFor(modelItem => item.ESTADO.NOMBRE)</td>
                     </tr>
                 }
             </tbody>

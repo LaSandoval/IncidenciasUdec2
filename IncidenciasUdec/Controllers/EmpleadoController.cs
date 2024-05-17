@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using IncidenciasUdec.Models;
 using System.Data.Entity;
+using System.Collections.Generic;
 
 namespace IncidenciasUdec.Controllers
 {
@@ -12,6 +13,7 @@ namespace IncidenciasUdec.Controllers
 
         public ActionResult Asignacion(string nombre = "")
         {
+
             var listaReportesAsignados = from r in db.REPORTE
                                          join u in db.USUARIO on r.ID_USUARIOASIGNACION equals u.ID
                                          join e in db.ESTADO on r.ID_ESTADO equals e.ID
